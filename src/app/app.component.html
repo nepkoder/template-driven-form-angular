@@ -2,50 +2,48 @@
   <form #f="ngForm" (ngSubmit)="submitClick(f)">
     <div class="form-group">
       <label>Name</label>
-      <input required type="text" pattern="sujan" class="form-control" #username="ngModel" ngModel name="username" (change)="log(username)" >
+      <input required type="text" pattern="sujan" class="form-control" #username="ngModel" ngModel name="username" (change)="log(username)">
       <div class="alert alert-danger" *ngIf="!username.valid && username.touched">
         <h4 *ngIf="username.errors.required">The name is required.</h4>
         <h5 *ngIf="username.errors.pattern">do not match with pattern</h5>
       </div>
       <label>Commment</label>
       <input type="text" class="form-control" ngModel name="comment" placeholder="Enter the comment !!">
+      <br>
+      <input type="password" minlength="3" maxlength="9" class="form-control" #check="ngModel" ngModel name="pass" placeholder="Enter Password">
+      <div *ngIf="check.touched && !check.valid" class="alert alert-info">
+        <h5 *ngIf="check.errors.minlength">Minimun length should be 3</h5>
+      </div>
+      <br>
+      <label> Working with checkbox</label>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ngModel name="isClick"> Click
+        </label>
+      </div>
+
+    </div>
+    <!-- | means Pipe in json format -->
+    <div style="border: 1px dotted red">
+      {{f.value | json}}
+    </div>
     <br>
-      <input type="password" minlength="3" maxlength="9" class="form-control" #check="ngModel" ngModel name="pass" placeholder="Enter Password">  
-     <div *ngIf="check.touched && !check.valid" class="alert alert-info">
-      <h5 *ngIf="check.errors.minlength" >Minimun length should be 3</h5>
-  </div>
-<br>
-  <label> Working with checkbox</label>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" ngModel name="isClick"> Click
-    </label>
-  </div>
-
-  </div>
-<!-- | means Pipe in json format -->
-<div style="border: 1px dotted red">  
-{{f.value | json}}  
-</div>
-  <br>
-<br>
-  <div class="dropdown">
-    <label>Select contact Method</label>
-    <select ngModel name="contactMethod" class="form-control">
-      <option *ngFor="let method of contactMethod" [value]="method.id">{{method.name}}</option>
-    </select>
-  </div>
-
-  <br>
-  <div
-  *ngFor="let gender of genderSelection" 
-  class="radiobutton">
-    <label>
-      <input ngModel name="genderType" type="radio" [value]="gender.id"> {{gender.type}}
-    </label>
+    <br>
+    <div class="dropdown">
+      <label>Select contact Method</label>
+      <select ngModel name="contactMethod" class="form-control">
+        <option *ngFor="let method of contactMethod" [value]="method.id">{{method.name}}</option>
+      </select>
     </div>
 
-<br>
+    <br>
+    <div *ngFor="let gender of genderSelection" class="radiobutton">
+      <label>
+        <input ngModel name="genderType" type="radio" [value]="gender.id"> {{gender.type}}
+      </label>
+    </div>
+
+    <br>
     <button class="btn btn-success" [disabled]="!f.valid" type="submit">Submit</button>
   </form>
 </div>
