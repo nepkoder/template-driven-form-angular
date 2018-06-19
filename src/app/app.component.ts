@@ -8,8 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 
-  log(x) {
-    console.log(x);
+  // log(x) {
+  //   console.log(x);
+  // }
+
+  submitClick(f) {
+    console.log(f);
   }
 
 }

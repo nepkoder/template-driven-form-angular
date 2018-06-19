@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form #f="ngForm" (ngSubmit)="submitClick(f)">
     <div class="form-group">
       <label>Name</label>
       <input required type="text" pattern="sujan" class="form-control" #username="ngModel" ngModel name="username" (change)="log(username)" >
