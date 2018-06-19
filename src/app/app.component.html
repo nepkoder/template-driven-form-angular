@@ -14,7 +14,27 @@
      <div *ngIf="check.touched && !check.valid" class="alert alert-info">
       <h5 *ngIf="check.errors.minlength" >Minimun length should be 3</h5>
   </div>
+<br>
+  <label> Working with checkbox</label>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="isClick"> Click
+    </label>
   </div>
+
+  </div>
+<!-- | means Pipe in json format -->
+  {{f.value | json}}  
+  <br>
+<br>
+  <div class="dropdown">
+    <label>Select contact Method</label>
+    <select ngModel name="contactMethod" class="form-control">
+      <option *ngFor="let method of contactMethod" [value]="method.id">{{method.name}}</option>
+    </select>
+  </div>
+
+<br>
     <button class="btn btn-success" [disabled]="!f.valid" type="submit">Submit</button>
   </form>
 </div>

@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  // title = 'app';
+
+  contactMethod = [
+    {id: 1, name: 'mobile'},
+    {id: 2, name: 'phone'}
+  ];
 
   // log(x) {
   //   console.log(x);
@@ -14,6 +19,7 @@ export class AppComponent {
 
   submitClick(f) {
     console.log(f);
+    console.log(f.value); // return as object
   }
 
 }
