@@ -24,7 +24,9 @@
 
   </div>
 <!-- | means Pipe in json format -->
-  {{f.value | json}}  
+<div style="border: 1px dotted red">  
+{{f.value | json}}  
+</div>
   <br>
 <br>
   <div class="dropdown">
@@ -33,6 +35,15 @@
       <option *ngFor="let method of contactMethod" [value]="method.id">{{method.name}}</option>
     </select>
   </div>
+
+  <br>
+  <div
+  *ngFor="let gender of genderSelection" 
+  class="radiobutton">
+    <label>
+      <input ngModel name="genderType" type="radio" [value]="gender.id"> {{gender.type}}
+    </label>
+    </div>
 
 <br>
     <button class="btn btn-success" [disabled]="!f.valid" type="submit">Submit</button>

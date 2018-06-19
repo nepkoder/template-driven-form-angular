@@ -13,6 +13,11 @@ export class AppComponent {
     {id: 2, name: 'phone'}
   ];
 
+  genderSelection = [
+    {id: 1, type: 'Male'},
+    {id: 2, type: 'Female'}
+  ];
+
   // log(x) {
   //   console.log(x);
   // }
