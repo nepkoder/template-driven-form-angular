@@ -15,6 +15,6 @@
       <h5 *ngIf="check.errors.minlength" >Minimun length should be 3</h5>
   </div>
   </div>
-    <button class="btn btn-success" type="submit">Submit</button>
+    <button class="btn btn-success" [disabled]="!f.valid" type="submit">Submit</button>
   </form>
 </div>
